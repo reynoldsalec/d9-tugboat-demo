@@ -2,7 +2,7 @@ services:
   # What to call the service hosting the site.
   php:
     # Use PHP 7.x with Apache; this syntax pulls in the latest version of PHP 7
-    image: tugboatqa/php:7-apache
+    image: tugboatqa/php:8-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -96,5 +96,5 @@ services:
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
         - curl https://files.lando.dev/d9-database.sql.gz -o /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql tugboat
+        - cat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
